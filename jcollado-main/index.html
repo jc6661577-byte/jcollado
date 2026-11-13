@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wendell James Collado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1230; --panel:#101c44; --ink:#f3f6ff; --muted:#a9b8e0; --line:#23336b;
+  --teal:#f472b6; --green:#7dd3fc; --blue:#3b82f6; --violet:#ec4899;
+  --sans:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{margin:0;min-height:100%}
+body{background:radial-gradient(ellipse at 80% 0%,#14306b 0%,var(--bg) 55%);color:var(--ink);font:1.05rem/1.6 var(--sans);overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+header,main{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1.25rem,6vw,6rem);border-bottom:1px solid var(--line);background:rgba(10,18,48,.7);backdrop-filter:blur(6px)}
+.logo{font:700 1.4rem var(--mono);text-decoration:none}
+.logo span{color:var(--teal)}
+.navlinks{display:flex;gap:2rem}
+nav .navlinks a{text-decoration:none;padding:.3rem 0;border-bottom:2px solid transparent}
+nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
+.hero{min-height:calc(100vh - 4.2rem);display:grid;align-items:center;gap:3rem;padding:3rem clamp(1.25rem,6vw,6rem)}
+.photo{position:relative;justify-self:center;width:min(78vw,29rem)}
+.ring{padding:7px;border-radius:50%;background:linear-gradient(140deg,var(--green),var(--blue) 60%,var(--violet));box-shadow:0 0 60px rgba(59,130,246,.25)}
+.ring div{border-radius:50%;background:#fff;aspect-ratio:1;overflow:hidden;border:8px solid var(--bg)}
+.ring img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.chip{position:absolute;padding:.55rem 1rem;border:1px solid #2b4a8f;border-radius:.6rem;background:rgba(10,20,52,.92);font:400 .95rem var(--mono)}
+.c1{top:11%;left:-4%;color:var(--teal)}
+.c2{bottom:8%;right:-4%;color:var(--green)}
+.hello{margin:0 0 .5rem;font:400 1.05rem var(--mono);color:var(--green)}
+h1{margin:0;font:700 clamp(2.7rem,8vw,5.2rem)/1.05 var(--sans);letter-spacing:-.03em}
+h1 span{display:block;background:linear-gradient(90deg,var(--teal),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent;width:fit-content}
+.type{margin:1.5rem 0;min-height:2rem;font:400 1.5rem var(--mono);color:var(--teal)}
+.type::after{content:"";display:inline-block;width:.1em;height:1em;margin-left:.15em;background:var(--teal);vertical-align:-.12em;animation:blink 1s steps(2,start) infinite}
+@keyframes blink{to{visibility:hidden}}
+.tags{display:flex;flex-wrap:wrap;gap:.7rem;padding:0;margin:0 0 2rem;list-style:none}
+.tags li{padding:.5rem 1.1rem;border:1px solid #2b4a8f;border-radius:2rem;background:rgba(16,28,68,.8);font-size:1rem}
+.contact{display:flex;flex-wrap:wrap;gap:1rem}
+.box{display:block;min-width:14rem;padding:.9rem 1.2rem;border-left:3px solid var(--teal);background:var(--panel);text-decoration:none}
+.box small{display:block;font:400 .78rem var(--mono);letter-spacing:.12em;color:var(--muted)}
+.box:hover{background:#172a5c}
+.next{display:inline-block;margin-top:1.75rem;padding:.8rem 1.4rem;border:1px solid var(--teal);border-radius:.4rem;color:var(--teal);font:700 1rem var(--mono);text-decoration:none}
+.next:hover{background:var(--teal);color:var(--bg)}
+@media(min-width:62rem){.hero{grid-template-columns:1fr 1.1fr}}
+@media(max-width:40rem){.c1{left:0}.c2{right:0}.type{font-size:1.2rem}.navlinks{gap:1rem}}
+</style>
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas>
+<header>
+  <nav aria-label="Main">
+    <a class="logo" href="index.html">WJC<span>_</span></a>
+    <div class="navlinks"><a class="active" href="index.html">Home</a><a href="biography.html">Personal Information</a><a href="achievements.html">Achievements</a></div>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="photo">
+      <div class="ring"><div><img id="me" alt="Photo of Wendell James Collado"></div></div>
+      <span class="chip c1">Networking</span>
+      <span class="chip c2">Security</span>
+    </div>
+    <div>
+      <p class="hello">&gt; hello_world</p>
+      <h1>Wendell James <span>Collado</span></h1>
+      <p class="type" id="type" aria-label="Willing to Learn"></p>
+      <ul class="tags"><li>BSIT</li><li>Networking</li><li>Security</li><li>1st Year</li></ul>
+      <div class="contact">
+        <a class="box" href="mailto:jc6661577@gmail.com"><small>EMAIL</small>jc6661577@gmail.com</a>
+        <a class="box" href="tel:+639501753925"><small>PHONE</small>0950 175 3925</a>
+      </div>
+      <a class="next" href="biography.html">Go to Personal Information &rarr;</a>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  var me = document.getElementById("me");
+  var names = ["photo.jpg", "photo.jpg.jpg", "photo%20(1).jpg", "photo.JPG", "photo.jpeg", "photo.png"];
+  var k = 0;
+  me.onerror = function(){ k++; if (k < names.length) { me.src = names[k]; } };
+  me.src = names[0];
+
+  var el = document.getElementById("type");
+  var words = ["Willing to Learn", "BSIT Student", "Network and Security"];
+  var w = 0, i = 0, deleting = false;
+  (function tick(){
+    var word = words[w];
+    if (!deleting) {
+      i++;
+      el.textContent = word.slice(0, i);
+      if (i === word.length) { deleting = true; return setTimeout(tick, 1500); }
+      setTimeout(tick, 90);
+    } else {
+      i--;
+      el.textContent = word.slice(0, i);
+      if (i === 0) { deleting = false; w = (w + 1) % words.length; return setTimeout(tick, 400); }
+      setTimeout(tick, 45);
+    }
+  })();
+
+  var c = document.getElementById("net"), x = c.getContext("2d"), pts = [], W, H;
+  function size(){
+    W = c.width = innerWidth; H = c.height = innerHeight;
+    var n = Math.min(70, Math.floor(W * H / 20000));
+    pts = [];
+    for (var j = 0; j < n; j++) pts.push({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25});
+  }
+  function draw(){
+    x.clearRect(0, 0, W, H);
+    for (var a = 0; a < pts.length; a++){
+      var p = pts[a];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      for (var b = a + 1; b < pts.length; b++){
+        var q = pts[b], d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < 150){ x.strokeStyle = "rgba(244,114,182," + (0.18 * (1 - d/150)) + ")"; x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(q.x, q.y); x.stroke(); }
+      }
+      x.fillStyle = "rgba(244,114,182,.7)"; x.beginPath(); x.arc(p.x, p.y, 2, 0, 6.283); x.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  size(); draw();
+  addEventListener("resize", size);
+})();
+</script>
+</body>
+</html>
