@@ -94,6 +94,8 @@ main{flex:1;min-height:0}
 .facts.one{grid-template-columns:1fr !important}
 .fact strong{display:block;font-weight:700;color:var(--ink)}
 .fact span{display:block;color:var(--muted);font-size:.92em}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(.4rem,1.5vh,1rem);width:100%;min-height:0}
+.gallery img{width:100%;height:clamp(5rem,28vh,18rem);object-fit:cover;border-radius:.75rem;border:2px solid var(--line);display:block}
 @media(max-width:40rem){nav{flex-wrap:wrap;gap:.3rem}.navlinks{gap:.8rem;flex-wrap:wrap;font-size:.85rem}}
 </style>
 </head>
@@ -123,6 +125,10 @@ main{flex:1;min-height:0}
         <div class="fact"><small>2026 · TVL TRACK</small><strong>ICT (Animation)</strong><span>Finished the Technical-Vocational-Livelihood track in Information and Communication Technology, Animation.</span></div>
         <div class="fact"><small>PINES CITY NATIONAL HIGH SCHOOL</small><strong>Loyalty Awardee</strong><span>Received the Loyalty Awardee ribbon at graduation.</span></div>
         <div class="fact"><small>PINES CITY NATIONAL HIGH SCHOOL</small><strong>Medal Recipient</strong><span>Received a medal from my school.</span></div>
+      </div>
+      <div class="gallery">
+        <img src="b86b893b-da17-4814-9e08-6565ecb28ab8.jpg" alt="Diploma">
+        <img src="a1f8dd5c-898e-4fb4-845e-740e0e67a832.jpg" alt="Medal">
       </div>
     </div>
   </section>
@@ -157,8 +163,5 @@ main{flex:1;min-height:0}
   addEventListener("resize", size);
 })();
 </script>
-<div style="display:flex; gap:20px; flex-wrap:wrap; margin-top:24px;">
-  <img src="b86b893b-da17-4814-9e08-6565ecb28ab8.jpg" alt="Diploma" style="max-width:320px; border-radius:12px;">
-  <img src="a1f8dd5c-898e-4fb4-845e-740e0e67a832.jpg" alt="Medal" style="max-width:320px; border-radius:12px;">
-</div></body>
+</body>
 </html>
