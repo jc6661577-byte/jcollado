@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Personal Information | Wendell James Collado</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a1230; --panel:#101c44; --ink:#f3f6ff; --muted:#a9b8e0; --line:#23336b;
+  --teal:#f472b6; --green:#7dd3fc; --blue:#3b82f6; --violet:#ec4899;
+  --sans:"Space Grotesk","Helvetica Neue",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,Consolas,monospace;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+html{scroll-behavior:smooth}
+.facts{scroll-margin-top:5rem}
+body{background:radial-gradient(ellipse at 80% 0%,#14306b 0%,var(--bg) 55%);color:var(--ink);font:1.05rem/1.6 var(--sans);overflow-x:hidden}
+canvas{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+a{color:inherit}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:3px}
+header,main{position:relative;z-index:1}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1rem clamp(1.25rem,6vw,6rem);border-bottom:1px solid var(--line);background:rgba(10,18,48,.7);backdrop-filter:blur(6px)}
+.logo{font:700 1.4rem var(--mono);text-decoration:none}
+.logo span{color:var(--teal)}
+.navlinks{display:flex;gap:2rem}
+nav .navlinks a{text-decoration:none;padding:.3rem 0;border-bottom:2px solid transparent}
+nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
+.intro{min-height:calc(100vh - 4.2rem);display:grid;align-items:center;gap:3rem;padding:3rem clamp(1.25rem,6vw,6rem)}
+.intro h2{margin:0 0 1rem;font:400 1.05rem var(--mono);color:var(--green)}
+.intro h3{margin:0 0 1.25rem;font:700 clamp(2.2rem,6vw,3.8rem)/1.08 var(--sans);letter-spacing:-.03em}
+.intro p{margin:0 0 1rem;max-width:40rem;color:var(--muted);font-size:1.2rem}
+.side{display:grid;gap:1.5rem;justify-items:start}
+.photo{display:block;width:min(60vw,15rem);transition:transform .2s}
+.photo:hover{transform:scale(1.04)}
+.ring{padding:6px;border-radius:50%;background:linear-gradient(140deg,var(--green),var(--blue) 60%,var(--violet));box-shadow:0 0 50px rgba(59,130,246,.25)}
+.ring div{border-radius:50%;background:#fff;aspect-ratio:1;overflow:hidden;border:6px solid var(--bg)}
+.ring img{width:100%;height:100%;object-fit:back to Home;object-position:center top;display:block}
+.facts{display:grid;gap:1rem;width:100%}
+.fact{padding:.9rem 1.2rem;border-left:3px solid var(--teal);background:var(--panel)}
+.fact small{display:block;font:400 .78rem var(--mono);letter-spacing:.12em;color:var(--muted)}
+.back{display:inline-block;margin-top:1.25rem;padding:.8rem 1.4rem;border:1px solid var(--teal);border-radius:.4rem;color:var(--teal);font:700 1rem var(--mono);text-decoration:none}
+.back:hover{background:var(--teal);color:var(--bg)}
+.buttons{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.25rem}
+.buttons .back{margin-top:0}
+@media(min-width:62rem){.intro{grid-template-columns:1.3fr 1fr}}
+@media(max-width:40rem){.navlinks{gap:1rem}}
+/* never scrolls: everything is sized to the screen on every device */
+html,body{height:100%}
+body{height:100dvh;display:flex;flex-direction:column;overflow:hidden;font-size:clamp(.7rem,1.9vh,1.05rem);line-height:1.4}
+header{flex:none}
+nav{padding-block:clamp(.4rem,1.4vh,1rem)}
+.logo{font-size:clamp(1rem,2.6vh,1.4rem)}
+.navlinks{gap:clamp(.8rem,3vw,2rem)}
+main{flex:1;min-height:0}
+.intro{min-height:0;height:100%;align-content:center;gap:clamp(.5rem,2vh,3rem);padding:clamp(.5rem,2vh,2rem) clamp(1rem,6vw,6rem)}
+.intro h2{margin-bottom:.3rem;font-size:clamp(.75rem,1.9vh,1.05rem)}
+.intro h3{font-size:clamp(1.6rem,min(6vh,9vw),3.8rem);margin-bottom:clamp(.3rem,1.5vh,1.25rem)}
+.intro p{font-size:clamp(.72rem,min(2vh,3.4vw),1.2rem);margin-bottom:.5rem}
+.buttons{margin-top:clamp(.4rem,1.5vh,1.25rem)}
+.back{padding:clamp(.4rem,1.2vh,.8rem) clamp(.8rem,2vw,1.4rem);font-size:clamp(.72rem,1.8vh,1rem)}
+.side{gap:clamp(.4rem,1.6vh,1.5rem)}
+.photo{width:clamp(3.5rem,11vh,11rem)}
+.ring{padding:4px}
+.ring div{border-width:4px}
+.facts{grid-template-columns:repeat(2,1fr);gap:clamp(.3rem,1vh,.8rem)}
+.fact{padding:clamp(.25rem,.9vh,.7rem) clamp(.5rem,1.5vw,1rem);overflow-wrap:anywhere;font-size:clamp(.7rem,1.8vh,1rem);line-height:1.25}
+.fact small{font-size:clamp(.55rem,1.3vh,.78rem)}
+@media(min-width:62rem),(orientation:landscape) and (min-width:35rem){
+  .intro{grid-template-columns:1fr 1.15fr;gap:clamp(1rem,4vw,3rem)}
+  .intro h3{font-size:clamp(1.6rem,6.5vh,3.8rem)}
+  .intro p{font-size:clamp(.72rem,2.2vh,1.2rem)}
+  .photo{width:clamp(3.5rem,22vh,11rem)}
+  .fact{font-size:clamp(.7rem,1.9vh,1rem)}
+}
+/* phones (portrait) */
+@media(max-width:62rem) and (orientation:portrait){
+  .intro p{font-size:clamp(.68rem,min(1.9vh,3.2vw),1.1rem);line-height:1.35;margin-bottom:.4rem}
+  .fact{font-size:clamp(.62rem,min(1.6vh,3.1vw),1rem);line-height:1.2}
+  .fact small{font-size:clamp(.5rem,1.1vh,.7rem)}
+  .facts{gap:.3rem}
+}
+@media(max-width:62rem) and (orientation:portrait) and (max-height:720px){
+  .photo{display:none}
+}
+@media(max-width:62rem) and (orientation:portrait) and (max-height:600px){
+  .intro p + p{display:none}
+}
+@media(max-height:420px){.photo{display:none}}
+@media(max-width:40rem){nav{flex-wrap:wrap;gap:.3rem}.navlinks{gap:.8rem;flex-wrap:wrap;font-size:.85rem}}
+</style>
+</head>
+<body>
+<canvas id="net" aria-hidden="true"></canvas>
+<header>
+  <nav aria-label="Main">
+    <a class="logo" href="index.html">WJC<span>_</span></a>
+    <div class="navlinks"><a href="index.html">Cover</a><a class="active" href="biography.html">Personal Information</a><a href="achievements.html">Achievements</a></div>
+  </nav>
+</header>
+<main>
+  <section class="intro">
+    <div>
+      <h2>&gt; personal_information</h2>
+      <h3>About Me</h3>
+      <p>Hi, I'm Wendell James Collado, a first-year BSIT student at the University of the Cordilleras, College of Information Technology and Computer Science (CITCS).</p>
+      <p>I'm interested in computers, and I'm always willing to learn. Outside class, I enjoy gaming, playing basketball, and learning things. I want to keep building my skills one step at a time so I can grow into a capable IT professional.</p>
+      <div class="buttons">
+        <a class="back" href="index.html">&larr; Back to Home</a>
+      </div>
+    </div>
+    <div class="side">
+      <a class="photo" href="index.html" title="Back to home" aria-label="Back to home"><div class="ring"><div><img id="me" alt="Photo of Wendell James Collado"></div></div></a>
+      <div class="facts" id="personal-info">
+        <div class="fact"><small>NAME</small>Wendell James Collado</div>
+        <div class="fact"><small>COURSE</small>BS Information Technology, 1st Year</div>
+        <div class="fact"><small>SCHOOL</small>University of the Cordilleras</div>
+        <div class="fact"><small>INTERESTS</small>Computers</div>
+        <div class="fact"><small>HOBBIES</small>Gaming, Basketball, Learning things</div>
+        <div class="fact"><small>LANGUAGES</small>English, Filipino, Ilocano</div>
+        <div class="fact"><small>BIRTHDAY</small>June 23, 2008</div>
+        <div class="fact"><small>AGE</small>18</div>
+        <div class="fact"><small>STATUS</small>Single</div>
+        <div class="fact"><small>HEIGHT</small>5'1"</div>
+        <div class="fact"><small>ADDRESS</small>#51 Padre Zamora, Baguio City</div>
+        <div class="fact"><small>MOTTO</small>Try and try until you succeed</div>
+        <div class="fact"><small>EMAIL</small>jc6661577@gmail.com</div>
+      </div>
+    </div>
+  </section>
+</main>
+<script>
+(function(){
+  var me = document.getElementById("me");
+  var names = ["photo.jpg", "photo.jpg.jpg", "photo%20(1).jpg", "photo.JPG", "photo.jpeg", "photo.png"];
+  var k = 0;
+  me.onerror = function(){ k++; if (k < names.length) { me.src = names[k]; } };
+  me.src = names[0];
+
+  var c = document.getElementById("net"), x = c.getContext("2d"), pts = [], W, H;
+  function size(){
+    W = c.width = innerWidth; H = c.height = innerHeight;
+    var n = Math.min(70, Math.floor(W * H / 20000));
+    pts = [];
+    for (var j = 0; j < n; j++) pts.push({x: Math.random()*W, y: Math.random()*H, vx: (Math.random()-.5)*.25, vy: (Math.random()-.5)*.25});
+  }
+  function draw(){
+    x.clearRect(0, 0, W, H);
+    for (var a = 0; a < pts.length; a++){
+      var p = pts[a];
+      p.x += p.vx; p.y += p.vy;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+      for (var b = a + 1; b < pts.length; b++){
+        var q = pts[b], d = Math.hypot(p.x - q.x, p.y - q.y);
+        if (d < 150){ x.strokeStyle = "rgba(244,114,182," + (0.18 * (1 - d/150)) + ")"; x.beginPath(); x.moveTo(p.x, p.y); x.lineTo(q.x, q.y); x.stroke(); }
+      }
+      x.fillStyle = "rgba(244,114,182,.7)"; x.beginPath(); x.arc(p.x, p.y, 2, 0, 6.283); x.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+  size(); draw();
+  addEventListener("resize", size);
+})();
+</script>
+</body>
+</html>
