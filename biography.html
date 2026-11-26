@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +43,8 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .ring img{width:100%;height:100%;object-fit:back to Home;object-position:center top;display:block}
 .facts{display:grid;gap:1rem;width:100%}
 .fact{padding:.9rem 1.2rem;border-left:3px solid var(--teal);background:var(--panel)}
+.fact.blood-type{border:3px solid #ff6fb5;border-left:8px solid #ff6fb5;background:linear-gradient(135deg,rgba(255,111,181,.32),var(--panel));box-shadow:0 0 22px rgba(255,111,181,.32);font-weight:900;font-size:1.25rem;color:#fff;min-height:4.5rem;display:flex;flex-direction:column;justify-content:center}
+.fact.blood-type small{color:#ff9acb;font-weight:800;font-size:.85rem;margin-bottom:.25rem}
 .fact small{display:block;font:400 .78rem var(--mono);letter-spacing:.12em;color:var(--muted)}
 .back{display:inline-block;margin-top:1.25rem;padding:.8rem 1.4rem;border:1px solid var(--teal);border-radius:.4rem;color:var(--teal);font:700 1rem var(--mono);text-decoration:none}
 .back:hover{background:var(--teal);color:var(--bg)}
@@ -117,6 +120,7 @@ main{flex:1;min-height:0}
       <a class="photo" href="index.html" title="Back to home" aria-label="Back to home"><div class="ring"><div><img id="me" alt="Photo of Wendell James Collado"></div></div></a>
       <div class="facts" id="personal-info">
         <div class="fact"><small>NAME</small>Wendell James Collado</div>
+        <div class="fact"><small>BLOOD TYPE</small>+O</div>
         <div class="fact"><small>COURSE</small>BS Information Technology, 1st Year</div>
         <div class="fact"><small>SCHOOL</small>University of the Cordilleras</div>
         <div class="fact"><small>INTERESTS</small>Computers</div>
@@ -126,8 +130,8 @@ main{flex:1;min-height:0}
         <div class="fact"><small>ADDRESS</small>#51 Padre Zamora, Baguio City</div>
         <div class="fact"><small>MOTTO</small>Try and try until you succeed</div>
         <div class="fact"><small>EMAIL</small>jc6661577@gmail.com</div>
-      </div class="fact"><small>BLOOD TYPE</small>+O</div>
-    </div
+      </div>
+    </div>
   </section>
 </main>
 <script>
