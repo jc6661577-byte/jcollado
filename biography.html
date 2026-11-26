@@ -28,8 +28,8 @@ nav{display:flex;justify-content:space-between;align-items:center;padding:1rem c
 .logo{font:700 1.4rem var(--mono);text-decoration:none}
 .logo span{color:var(--teal)}
 .navlinks{display:flex;gap:2rem}
-nav .navlinks a{text-decoration:none;padding:.3rem 0;border-bottom:2px solid transparent}
-nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
+nav .navlinks a{display:inline-block;text-decoration:none;padding:.55rem 1rem;border:1px solid var(--teal);border-radius:.45rem;background:var(--panel);color:var(--ink);font:700 .88rem var(--mono);transition:background .2s,color .2s,transform .2s}
+nav .navlinks a.active,nav .navlinks a:hover{background:var(--teal);color:var(--bg);transform:translateY(-1px)}
 .intro{min-height:calc(100vh - 4.2rem);display:grid;align-items:center;gap:3rem;padding:3rem clamp(1.25rem,6vw,6rem)}
 .intro h2{margin:0 0 1rem;font:400 1.05rem var(--mono);color:var(--green)}
 .intro h3{margin:0 0 1.25rem;font:700 clamp(2.2rem,6vw,3.8rem)/1.08 var(--sans);letter-spacing:-.03em}
@@ -39,7 +39,7 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .photo:hover{transform:scale(1.04)}
 .ring{padding:6px;border-radius:50%;background:linear-gradient(140deg,var(--teal),var(--violet) 45%,var(--blue));box-shadow:0 0 50px rgba(255,111,181,.28)}
 .ring div{border-radius:50%;background:#fff;aspect-ratio:1;overflow:hidden;border:6px solid var(--bg)}
-.ring img{width:100%;height:100%;object-fit:back to Home;object-position:center top;display:block}
+.ring img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
 .facts{display:grid;gap:1rem;width:100%}
 .fact{padding:.9rem 1.2rem;border-left:3px solid var(--teal);background:var(--panel)}
 .fact.blood-type{border:3px solid #ff6fb5;border-left:8px solid #ff6fb5;background:linear-gradient(135deg,rgba(255,111,181,.32),var(--panel));box-shadow:0 0 22px rgba(255,111,181,.32);font-weight:900;font-size:1.25rem;color:#fff;min-height:4.5rem;display:flex;flex-direction:column;justify-content:center}
@@ -50,7 +50,7 @@ nav .navlinks a.active,nav .navlinks a:hover{border-bottom-color:var(--teal)}
 .buttons{display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.25rem}
 .buttons .back{margin-top:0}
 @media(min-width:62rem){.intro{grid-template-columns:1.3fr 1fr}}
-@media(max-width:40rem){.navlinks{gap:1rem}}
+@media(max-width:40rem){.navlinks{gap:.5rem}.navlinks a{padding:.4rem .55rem;font-size:.72rem}}
 /* never scrolls: everything is sized to the screen on every device */
 html,body{height:100%}
 body{height:100dvh;display:flex;flex-direction:column;overflow:hidden;font-size:clamp(.7rem,1.9vh,1.05rem);line-height:1.4}
@@ -93,7 +93,7 @@ main{flex:1;min-height:0}
   .intro p + p{display:none}
 }
 @media(max-height:420px){.photo{display:none}}
-@media(max-width:40rem){nav{flex-wrap:wrap;gap:.3rem}.navlinks{gap:.8rem;flex-wrap:wrap;font-size:.85rem}}
+@media(max-width:40rem){nav{flex-wrap:wrap;gap:.5rem}.navlinks{gap:.45rem;flex-wrap:wrap;font-size:.8rem}}
 </style>
 </head>
 <body>
@@ -101,7 +101,7 @@ main{flex:1;min-height:0}
 <header>
   <nav aria-label="Main">
     <a class="logo" href="index.html">WJC<span>_</span></a>
-    <div class="navlinks"><a href="index.html">Cover</a><a class="active" href="biography.html">Personal Information</a><a href="achievements.html">Achievements</a></div>
+    <div class="navlinks"><a class="active" href="biography.html">Personal Info</a><a href="achievements.html">Achievements</a><a href="family.html">Family and Friends</a></div>
   </nav>
 </header>
 <main>
@@ -127,6 +127,9 @@ main{flex:1;min-height:0}
         <div class="fact"><small>LANGUAGES</small>English, Filipino, Ilocano</div>
         <div class="fact"><small>BIRTHDAY</small>June 23, 2008</div>
         <div class="fact"><small>AGE</small>18 years old</div>
+        <div class="fact"><small>EYE COLOR</small>Black</div>
+        <div class="fact"><small>HEIGHT</small>154 cm</div>
+        <div class="fact"><small>WEIGHT</small>40 kg</div>
         <div class="fact"><small>ADDRESS</small>#51 Padre Zamora, Baguio City</div>
         <div class="fact"><small>MOTTO</small>Try and try until you succeed</div>
         <div class="fact"><small>EMAIL</small>jc6661577@gmail.com</div>
